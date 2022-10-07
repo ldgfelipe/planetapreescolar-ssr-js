@@ -14,13 +14,13 @@
         "firebase-debug.*.log"
       ],
       "predeploy": [
-        "npm run build && rm -rf functions/nuxt && cp -r .nuxt/ functions/nuxt/ && cp nuxt.config.js functions/"
+        "npm run build && rm -rf functions/nuxt && cp -r .nuxt/ functions/nuxt/ && cp nuxt.config.js functions/  && cp .env functions/"
       ]
     }
   ],
   "hosting": {
     "predeploy": [
-      "rm -rf public/* && mkdir -p public/_nuxt && cp -r .nuxt/dist/client/ public/_nuxt && cp -a static/. public/"
+      "rm -rf public/* && mkdir -p public/_nuxt && cp -r .nuxt/dist/client/ public/_nuxt && cp -a static/. public/ &&  cp .env public/"
     ],
     "public": "public",
     "ignore": [
@@ -32,8 +32,7 @@
       {
         "source": "**",
         "function": "ssrapp"
-      }
-    ]
+      }]
   },
   "storage": {
     "rules": "storage.rules"
