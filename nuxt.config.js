@@ -1,9 +1,10 @@
 import colors from 'vuetify/es5/util/colors'
-
-export default {
+//require('dotenv').config()
+// eslint-disable-next-line nuxt/no-cjs-in-config
+module.exports = {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - planteapreescolar-ssr-js',
+    titleTemplate: '%s - Planetapreescolar',
     title: 'planteapreescolar-ssr-js',
     meta: [
       { charset: 'utf-8' },
@@ -40,9 +41,25 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/firebase',
+    '@nuxtjs/dotenv'
   ],
-
+  firebase: {
+    config: {
+      apiKey: process.env.FB_APIKEY,
+      authDomain: process.env.FB_AUTHDOMAIN,
+      databaseURL: process.env.FB_DATABASEURL,
+      projectId: process.env.FB_PROJECTID,
+      storageBucket: process.env.FB_STORAGEBUCKERT,
+      messagingSenderId: process.env.FB_MESSAGINGSENDERID,
+      appId: process.env.FB_APPID,
+      measurementId: process.env.FB_MEASUREMENTID
+    },
+    services: {
+      auth: true // Just as example. Can be any other service.
+    }
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
@@ -60,16 +77,22 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      light: true,
       themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+        light: {
+          primary: '#ad227d',
+          melon:'#ff6c5c',
+          verylight:'#ebe4eb',
+          secondary: '#c93b98',
+          greysh:'#484848',
+          morado:'#3d1e55',
+          accent: '#82B1FF',
+          butoncolor:'#135568',
+          error: '#FF5252',
+          info: '#2196F3',
+          success: '#4CAF50',
+          warning: '#FFC107',
+          prysec: '#6C0040'
         }
       }
     }
@@ -77,5 +100,8 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extend () {
+      console.log('Conectado a: ' + process.env.FB_PROJECTID)
+    },
   }
 }
