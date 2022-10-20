@@ -34,3 +34,12 @@
     <v-col cols="2" />
   </v-row>
 </template>
+<script>
+export default {
+  data () {
+    return {
+      test: ''
+    }
+  }
+}
+</script>

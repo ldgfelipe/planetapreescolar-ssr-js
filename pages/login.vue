@@ -1,6 +1,6 @@
 <template>
   <v-card max-width="600" class="text-center ma-auto mt-5">
-    <v-card-title class="melon white--text ">
+    <v-card-title class="morado white--text ">
       Inicia Sesión
     </v-card-title>
     <v-card-text class="pt-10">
@@ -61,9 +61,9 @@ export default {
     },
     iniciarSesion () {
       if (this.$refs.form.validate()) {
-        console.log('enviando datos')
+        console.log(this.$fire.auth())
       }
-    },
+    },  
     iniSesionGoogle () {},
     iniSesionFacebook () {}
   }

@@ -1,6 +1,6 @@
 <template>
   <v-card max-width="600" class="text-center ma-auto mt-5">
-    <v-card-title class="melon white--text ">
+    <v-card-title class="morado white--text ">
       Inicia Sesión
     </v-card-title>
     <v-card-text class="pt-10">
@@ -86,9 +86,23 @@ export default {
       // eslint-disable-next-line no-unneeded-ternary
       this.viewpass = this.viewpass ? false : true
     },
-    registrar () {
+   async registrar () {
       if (this.$refs.form.validate()) {
-        console.log('enviando datos')
+
+    this.$fire.auth.createUserWithEmailAndPassword(this.registro.correo, this.registro.pass)
+
+  .then((userCredential) => {
+    // Signed in
+    var user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ..
+  });
+
+
       }
     },
     reiniciar () {
