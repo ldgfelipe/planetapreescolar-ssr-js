@@ -13,12 +13,15 @@
         </v-avatar>
       </v-btn>
       <v-spacer />
-      <v-btn class="morado white--text no-text-transform" to="/login">
+      <v-btn v-if="!is_login" class="morado white--text no-text-transform" to="/login">
         Iniciar Sesión
       </v-btn>
-      <v-btn class="melon white--text no-text-transform" to="/register">
+      <v-btn v-if="!is_login"  class="melon white--text no-text-transform" to="/register">
         Registro
       </v-btn>
+
+
+      
     </v-app-bar>
     <v-main class="workarea">
       <v-container>
@@ -32,6 +35,7 @@
   </v-app>
 </template>
 <script>
+import {mapState} from 'vuex'
 import Menulat from '@/components/headers/menu.vue'
 export default {
   name: 'DefaultLayout',
@@ -47,6 +51,9 @@ export default {
       drawer: true,
       clipped: false
     }
+  },
+  computed:{
+    ...mapState(['is_login'])
   }
 }
 </script>

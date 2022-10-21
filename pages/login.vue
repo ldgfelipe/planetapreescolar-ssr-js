@@ -9,8 +9,9 @@
         v-model="valid"
         lazy-validation
       >
-        <v-text-field outlined label="Usuario" :rules="[rules.required,rules.email]" />
+        <v-text-field outlined label="Usuario" v-model="datalogin.email" :rules="[rules.required,rules.email]" />
         <v-text-field
+          v-model="datalogin.pass"
           :type="viewpass ? 'password' : 'text'"
           outlined
           label="Contraseña"
@@ -40,9 +41,11 @@
   </v-card>
 </template>
 <script>
+
 export default {
   data () {
     return {
+      datalogin:{},
       viewpass: true,
       valid: true,
       rules: {
@@ -61,7 +64,14 @@ export default {
     },
     iniciarSesion () {
       if (this.$refs.form.validate()) {
-        console.log(this.$fire.auth())
+       this.$fire.auth.signInWithEmailAndPassword(this.datalogin.email,this.datalogin.pass)
+       .then((userCredential)=>{
+        var user = userCredential.user;
+        this.$router.push('/')
+       })
+       .catch((error)=>{
+          console.log(error)
+       })
       }
     },  
     iniSesionGoogle () {},

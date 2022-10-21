@@ -1,0 +1,22 @@
+{
+    "plugins":["node_modules/jsdoc-vuejs","node_modules/jsdoc-vuex-plugin"],
+    "source":{
+        "include":["./functions/index.js","./functions/api","./pages","./store"],
+        "explude":["./node_modules","./functions/node_modules","./pages/documents"],
+        "includePattern":".(vue|js)$",
+        "explodePattern":"",
+        "type":"module"
+    },
+    "templates":{
+        "cleverLinks":false,
+        "monospaceLinks":false
+    },
+    
+        "tags":{
+            "allowUnknowTags":true
+        },
+        "opts":{
+            "recurse":true,
+            "destination":"./static/docs"
+        }
+}

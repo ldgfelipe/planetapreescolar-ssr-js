@@ -43,6 +43,9 @@ module.exports = {
     '@nuxtjs/firebase',
     '@nuxtjs/dotenv'
   ],
+  env:{
+    functions:process.env.FB_FUNCTION_LOCAL, //// FB_FUNCTION_LOCAL, FB_FUNCTION_DEV, FB_FUNCTION_PROD
+  },
   firebase: {
     config: {
       apiKey: process.env.FB_APIKEY,
@@ -55,7 +58,18 @@ module.exports = {
       measurementId: process.env.FB_MEASUREMENTID
     },
     services: {
-      auth: true // Just as example. Can be any other service.
+      auth: {
+       persistence: 'local', // default
+  initialize: {
+    onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
+    onAuthStateChangedAction: 'onAuthStateChangedAction',
+    subscribeManually: false
+  },
+  ssr: false, // default
+      }, // Just as example. Can be any other service.
+  functions:{
+        emulatorPORT:5001
+      }
     }
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -100,6 +114,7 @@ module.exports = {
   build: {
     extend () {
       console.log('Conectado a: ' + process.env.FB_PROJECTID)
+
     }
   }
 }

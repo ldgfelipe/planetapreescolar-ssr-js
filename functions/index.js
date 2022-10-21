@@ -3,10 +3,7 @@ const { Nuxt } = require('nuxt-start');
 const express = require('express');
 const app = express();
 const cors = require('cors');
-
 app.use(cors({origin: true}));
-
-const bodyParser = require('body-parser');
 
 // my routings
 const apiRoute = require("./api/usuarios")

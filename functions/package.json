@@ -24,6 +24,7 @@
     "firebase": "^9.10.0",
     "firebase-admin": "^8.0.0",
     "firebase-functions": "^3.24.1",
+    "json-validator": "^0.0.34",
     "nuxt": "^2.3.4",
     "nuxt-start": "^2.15.8",
     "Planetapreescolar": "file:..",

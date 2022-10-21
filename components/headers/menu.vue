@@ -16,10 +16,19 @@
           <v-list-item-title class="white--text">{{ item.title }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
+      <v-list-item v-if="is_login" @click="logout()">
+        <v-list-item-action>
+          <v-icon class="white--text">mdi-logout</v-icon>
+        </v-list-item-action>
+        <v-list-item-content>
+          <v-list-item-title class="white--text">logout</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
 <script>
+import {mapState} from 'vuex'
 export default {
   props: {
     // eslint-disable-next-line vue/require-prop-types
@@ -48,6 +57,18 @@ export default {
       right: true,
       rightDrawer: false
 
+    }
+  },
+  computed:{
+    ...mapState(['is_login'])
+  },
+  methods:{
+    logout(){
+      this.$fire.auth.signOut().then(() => {
+  this.$router.push('/')
+}).catch((error) => {
+  // An error happened.
+});
     }
   },
   watch: {

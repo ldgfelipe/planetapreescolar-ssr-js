@@ -43,6 +43,9 @@ module.exports = {
     '@nuxtjs/firebase',
     '@nuxtjs/dotenv'
   ],
+  env:{
+    functions:process.env.FB_FUNCTION_LOCAL, /* FB_FUNCTION_LOCAL, FB_FUNCTION_DEV, FB_FUNCTION_PROD */
+  },
   firebase: {
     config: {
       apiKey: process.env.FB_APIKEY,
@@ -111,6 +114,7 @@ module.exports = {
   build: {
     extend () {
       console.log('Conectado a: ' + process.env.FB_PROJECTID)
+
     }
   }
 }

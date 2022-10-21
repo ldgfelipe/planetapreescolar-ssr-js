@@ -1,20 +1,18 @@
+/**
+ * @module schemas
+ */
+
+/**
+ * @name  Usuario  
+ * @property {String} nombre Nombre de usuario
+ * @property {String} password Contraseña de usuario  
+* @property {String} correo Contraseña de usuario  
+ */
 const usuario={
-    nombre:{
-        type:String,
-        require:true
-    },
-    password:{
-        type:String
-    },
-    correo:{
-        type:String
-    },
-    avatar:{
-        type:String,
-        require:false,
-        default:""
-    }
-    
+    nombre:"",
+    password:"",
+    correo:"",
+    avatar:""
 }
 
 module.exports= {

@@ -37,9 +37,24 @@
         <br>
         <v-row>
           <v-col cols="12">
-            <v-btn class="morado white--text" block @click="registrar()">
+
+
+            <v-btn v-if="!loader" class="morado white--text" block @click="registrar()">
               Registrar
             </v-btn>
+            <div v-if="mensajeres" v-html="mensajeres"></div>
+            <div v-if="loader"  class="center">
+                <v-progress-circular
+                
+                indeterminate
+                color="morado"
+                >
+
+                </v-progress-circular><br />
+         
+            </div>
+
+
           </v-col>
         </v-row>
         <br>
@@ -64,6 +79,8 @@ export default {
   data () {
     return {
       viewpass: true,
+      loader:false,
+      mensajeres:"",
       valid: true,
       rules: {
         required: value => !!value || 'Required.',
@@ -81,6 +98,9 @@ export default {
       registro: {}
     }
   },
+  mounted(){
+    console.log(process.env.functions)
+  },
   methods: {
     passview () {
       // eslint-disable-next-line no-unneeded-ternary
@@ -88,17 +108,53 @@ export default {
     },
    async registrar () {
       if (this.$refs.form.validate()) {
-
+        this.loader=true
+        this.mensajeres="No cierre la pagina estamos creando su cuenta"
     this.$fire.auth.createUserWithEmailAndPassword(this.registro.correo, this.registro.pass)
 
   .then((userCredential) => {
     // Signed in
-    var user = userCredential.user;
+  
+      var user = userCredential.user;
+      this.registro.uid=user.uid
+      this.registro.displayName=user.displayName
+      this.registro.phoneNumber=user.phoneNumber
+      this.registro.photoURL=user.photoURL
+      this.registro.providerId=user.providerId
+      this.registro.refreshToken=user.refreshToken
+      this.registro.tenantId=user.tenantId
+
+    fetch(process.env.functions+'/users/create',{
+      method:'POST',
+      mode: 'cors',
+      headers:{
+        'Content-type':'application/json'
+      },
+      body:JSON.stringify(this.registro)
+    })
+    .then(res=>res.json())
+    .then((res)=>{
+      if(res.code===1){
+        this.mensajeres=res.mensaje
+        setTimeout(()=>{
+         this.mensajeres="Espere estamos redireccionando" 
+         setTimeout(()=>{
+          this.$router.push('/')
+         },3000)
+        },3000)
+      }else{
+        this.loader=false
+        this.mensajeres=res.mensaje
+      }
+    
+    })
+    ///
     // ...
   })
   .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
+    this.loader=false
+        this.mensajeres="La dirección de correo electrónico ya está en uso por otra cuenta, pruebe con otra cuenta o <a href='./login'>inicie sesión</a> con su cuenta registrada"
+
     // ..
   });
 

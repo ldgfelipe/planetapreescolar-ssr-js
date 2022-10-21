@@ -1,0 +1,23 @@
+[
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/login.vue",
+    "chunkName": "pages/login",
+    "_name": "_55b1d5f5"
+  },
+  {
+    "name": "register",
+    "path": "/register",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/register.vue",
+    "chunkName": "pages/register",
+    "_name": "_204282c7"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_e7eb9a44"
+  }
+]
