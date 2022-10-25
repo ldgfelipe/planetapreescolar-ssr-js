@@ -26,12 +26,12 @@
         <br>
         <v-row>
           <v-col cols="6">
-            <v-btn outlined color="red" block @click="iniSesionGoogle()">
+            <v-btn outlined color="red" block @click="iniSesionGoogleFacebook('google')">
               <v-icon>mdi-google</v-icon>
             </v-btn>
           </v-col>
           <v-col cols="6">
-            <v-btn outlined color="blue" block @click="iniSesionFacebook()">
+            <v-btn outlined color="blue" block @click="iniSesionGoogleFacebook('facebook')">
               <v-icon>mdi-facebook</v-icon>
             </v-btn>
           </v-col>
@@ -67,15 +67,49 @@ export default {
        this.$fire.auth.signInWithEmailAndPassword(this.datalogin.email,this.datalogin.pass)
        .then((userCredential)=>{
         var user = userCredential.user;
+        if(userCredential.customClaims){
         this.$router.push('/')
+        }else{
+      fetch(process.env.functions+'/v1/users/addclaims',{
+            method:'POST',
+            mode: 'cors',
+            headers:{
+              'Content-type':'application/json'
+            },
+            body:JSON.stringify(user)
+    })
+    .then(res=>res.json())
+    .then((res)=>{
+      this.$router.push('/')
+    })
+        }
+       
        })
        .catch((error)=>{
           console.log(error)
        })
       }
     },  
-    iniSesionGoogle () {},
-    iniSesionFacebook () {}
+    iniSesionGoogleFacebook (p) {
+
+      try{
+        this.registro={}
+      var provider = p === 'google' ? new this.$fireModule.auth.GoogleAuthProvider() :   new this.$fireModule.auth.FacebookAuthProvider() 
+
+     provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+      this.$fireModule.auth.languageCode = 'es';
+
+      this.$fireModule.auth().signInWithPopup(provider)
+      .then((userCredential)=>{
+       
+        this.$router.push('/')
+      })
+    }catch(error){
+      console.log(error)
+    }
+
+    },
+    
   }
 }
 </script>

@@ -1,5 +1,68 @@
 [
   {
+    "name": "administracion",
+    "path": "/administracion",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/administracion.vue",
+    "chunkName": "pages/administracion",
+    "_name": "_4aa40b33"
+  },
+  {
+    "name": "administrador",
+    "path": "/administrador",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/administrador.vue",
+    "chunkName": "pages/administrador",
+    "_name": "_4199ef49"
+  },
+  {
+    "name": "alianzas",
+    "path": "/alianzas",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/alianzas.vue",
+    "chunkName": "pages/alianzas",
+    "_name": "_25610d25"
+  },
+  {
+    "name": "aviso-de-privacidad",
+    "path": "/aviso-de-privacidad",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/aviso-de-privacidad.vue",
+    "chunkName": "pages/aviso-de-privacidad",
+    "_name": "_fe7407ec"
+  },
+  {
+    "name": "blog",
+    "path": "/blog",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/blog.vue",
+    "chunkName": "pages/blog",
+    "_name": "_28e55246"
+  },
+  {
+    "name": "foro",
+    "path": "/foro",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/foro.vue",
+    "chunkName": "pages/foro",
+    "_name": "_6cabfd6a"
+  },
+  {
+    "name": "hojas-de-trabajo",
+    "path": "/hojas-de-trabajo",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/hojas-de-trabajo.vue",
+    "chunkName": "pages/hojas-de-trabajo",
+    "_name": "_756b0c52"
+  },
+  {
+    "name": "hojas-para-colorear",
+    "path": "/hojas-para-colorear",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/hojas-para-colorear.vue",
+    "chunkName": "pages/hojas-para-colorear",
+    "_name": "_51343758"
+  },
+  {
+    "name": "interactivos",
+    "path": "/interactivos",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/interactivos.vue",
+    "chunkName": "pages/interactivos",
+    "_name": "_6dc22b2b"
+  },
+  {
     "name": "login",
     "path": "/login",
     "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/login.vue",
@@ -7,11 +70,95 @@
     "_name": "_55b1d5f5"
   },
   {
+    "name": "logout",
+    "path": "/logout",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/logout.vue",
+    "chunkName": "pages/logout",
+    "_name": "_a4cc1da4"
+  },
+  {
+    "name": "material-didactico",
+    "path": "/material-didactico",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/material-didactico.vue",
+    "chunkName": "pages/material-didactico",
+    "_name": "_97ac4d00"
+  },
+  {
+    "name": "planeaciones",
+    "path": "/planeaciones",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/planeaciones.vue",
+    "chunkName": "pages/planeaciones",
+    "_name": "_783c3d9c"
+  },
+  {
+    "name": "politicas",
+    "path": "/politicas",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/politicas.vue",
+    "chunkName": "pages/politicas",
+    "_name": "_4a37f3e0"
+  },
+  {
+    "name": "populares",
+    "path": "/populares",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/populares.vue",
+    "chunkName": "pages/populares",
+    "_name": "_3de7ca5a"
+  },
+  {
+    "name": "preguntas-frecuentes",
+    "path": "/preguntas-frecuentes",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/preguntas-frecuentes.vue",
+    "chunkName": "pages/preguntas-frecuentes",
+    "_name": "_aedf0ad4"
+  },
+  {
+    "name": "recientes",
+    "path": "/recientes",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/recientes.vue",
+    "chunkName": "pages/recientes",
+    "_name": "_107005ac"
+  },
+  {
+    "name": "recomendaciones",
+    "path": "/recomendaciones",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/recomendaciones.vue",
+    "chunkName": "pages/recomendaciones",
+    "_name": "_423aae13"
+  },
+  {
     "name": "register",
     "path": "/register",
     "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/register.vue",
     "chunkName": "pages/register",
     "_name": "_204282c7"
+  },
+  {
+    "name": "soporte",
+    "path": "/soporte",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/soporte.vue",
+    "chunkName": "pages/soporte",
+    "_name": "_9afeb598"
+  },
+  {
+    "name": "terminos-y-condiciones",
+    "path": "/terminos-y-condiciones",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/terminos-y-condiciones.vue",
+    "chunkName": "pages/terminos-y-condiciones",
+    "_name": "_60230732"
+  },
+  {
+    "name": "adminpages-recursos",
+    "path": "/adminpages/recursos",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/adminpages/recursos.vue",
+    "chunkName": "pages/adminpages/recursos",
+    "_name": "_18f91050"
+  },
+  {
+    "name": "adminpages-usuarios",
+    "path": "/adminpages/usuarios",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/adminpages/usuarios.vue",
+    "chunkName": "pages/adminpages/usuarios",
+    "_name": "_493a82ea"
   },
   {
     "name": "index",

@@ -39,7 +39,7 @@
           <v-col cols="12">
 
 
-            <v-btn v-if="!loader" class="morado white--text" block @click="registrar()">
+            <v-btn v-if="!loader" class="morado white--text" block @click="registrarUserAndPass()">
               Registrar
             </v-btn>
             <div v-if="mensajeres" v-html="mensajeres"></div>
@@ -60,12 +60,12 @@
         <br>
         <v-row>
           <v-col cols="6">
-            <v-btn outlined color="red" block>
+            <v-btn outlined color="red" block @click="registroGoogleOrFacebook('google')">
               <v-icon>mdi-google</v-icon>
             </v-btn>
           </v-col>
           <v-col cols="6">
-            <v-btn outlined color="blue" block>
+            <v-btn outlined color="blue" block @click="registroGoogleOrFacebook('facebook')">
               <v-icon>mdi-facebook</v-icon>
             </v-btn>
           </v-col>
@@ -99,14 +99,14 @@ export default {
     }
   },
   mounted(){
-    console.log(process.env.functions)
+    
   },
   methods: {
     passview () {
       // eslint-disable-next-line no-unneeded-ternary
       this.viewpass = this.viewpass ? false : true
     },
-   async registrar () {
+   async registrarUserAndPass () {
       if (this.$refs.form.validate()) {
         this.loader=true
         this.mensajeres="No cierre la pagina estamos creando su cuenta"
@@ -115,6 +115,21 @@ export default {
   .then((userCredential) => {
     // Signed in
   
+  this.regfirestore(userCredential)
+    ///
+    // ...
+  })
+  .catch((error) => {
+    this.loader=false
+        this.mensajeres="La dirección de correo electrónico ya está en uso por otra cuenta, pruebe con otra cuenta o <a href='./login'>inicie sesión</a> con su cuenta registrada"
+
+    // ..
+  });
+
+
+      }
+    },
+    regfirestore(userCredential){
       var user = userCredential.user;
       this.registro.uid=user.uid
       this.registro.displayName=user.displayName
@@ -123,8 +138,9 @@ export default {
       this.registro.providerId=user.providerId
       this.registro.refreshToken=user.refreshToken
       this.registro.tenantId=user.tenantId
+      this.registro.correo=user.email
 
-    fetch(process.env.functions+'/users/create',{
+    fetch(process.env.functions+'/v1/users/create',{
       method:'POST',
       mode: 'cors',
       headers:{
@@ -148,22 +164,28 @@ export default {
       }
     
     })
-    ///
-    // ...
-  })
-  .catch((error) => {
-    this.loader=false
-        this.mensajeres="La dirección de correo electrónico ya está en uso por otra cuenta, pruebe con otra cuenta o <a href='./login'>inicie sesión</a> con su cuenta registrada"
-
-    // ..
-  });
-
-
-      }
     },
     reiniciar () {
       this.$refs.form.reset()
+    },
+    registroGoogleOrFacebook(p){
+      try{
+        this.registro={}
+      var provider = p === 'google' ? new this.$fireModule.auth.GoogleAuthProvider() :   new this.$fireModule.auth.FacebookAuthProvider() 
+
+     provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+      this.$fireModule.auth.languageCode = 'es';
+
+      this.$fireModule.auth().signInWithPopup(provider)
+      .then((userCredential)=>{
+        this.regfirestore(userCredential)
+
+      })
+    }catch(error){
+      console.log(error)
     }
+    }
+
   }
 }
 </script>

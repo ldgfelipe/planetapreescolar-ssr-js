@@ -1,18 +1,15 @@
-const {admin, functions} =require('./fb')
+const functions = require("firebase-functions");
 const { Nuxt } = require('nuxt-start');
 const express = require('express');
 const app = express();
 const cors = require('cors');
 app.use(cors({origin: true}));
 
-// my routings
-const apiRoute = require("./api/usuarios")
-// add routes to the express app.
-app.use("/users", apiRoute)
+const admin = require("firebase-admin");
+const adminInit=admin.initializeApp(functions.config().firebase);
+const routes= require('./routes');
 
-app.get("/test",(req,res)=>{
-  res.json({rest:'carga datos get'})
-})
+app.use('/v1',routes)
 
 const api = functions.https.onRequest(app);
 

@@ -6,8 +6,10 @@ import NuxtError from '../layouts/error.vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 
 import _6f6c098b from '../layouts/default.vue'
+import _72edf111 from '../layouts/footer.vue'
+import _27691486 from '../layouts/loading.vue'
 
-const layouts = { "_default": sanitizeComponent(_6f6c098b) }
+const layouts = { "_default": sanitizeComponent(_6f6c098b),"_footer": sanitizeComponent(_72edf111),"_loading": sanitizeComponent(_27691486) }
 
 export default {
   render (h, props) {

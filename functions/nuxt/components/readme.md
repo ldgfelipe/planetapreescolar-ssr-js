@@ -6,5 +6,7 @@ You can directly use them in pages and other components without the need to impo
 
 **Tip:** If a component is conditionally rendered with `v-if` and is big, it is better to use `Lazy` or `lazy-` prefix to lazy load.
 
-- `<ContentBuscador>` | `<content-buscador>` (components/content/buscador.vue)
 - `<HeadersMenu>` | `<headers-menu>` (components/headers/menu.vue)
+- `<ContentBuscador>` | `<content-buscador>` (components/content/buscador.vue)
+- `<ContentRecursos>` | `<content-recursos>` (components/content/recursos.vue)
+- `<AdministracionUsuariosPerfilusuario>` | `<administracion-usuarios-perfilusuario>` (components/administracion/usuarios/perfilusuario.vue)

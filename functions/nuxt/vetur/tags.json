@@ -1,8 +1,14 @@
 {
+  "HeadersMenu": {
+    "description": "Auto imported from components/headers/menu.vue"
+  },
   "ContentBuscador": {
     "description": "Auto imported from components/content/buscador.vue"
   },
-  "HeadersMenu": {
-    "description": "Auto imported from components/headers/menu.vue"
+  "ContentRecursos": {
+    "description": "Auto imported from components/content/recursos.vue"
+  },
+  "AdministracionUsuariosPerfilusuario": {
+    "description": "Auto imported from components/administracion/usuarios/perfilusuario.vue"
   }
 }

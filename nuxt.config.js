@@ -1,3 +1,5 @@
+var apirest="local" /// prod
+
 // eslint-disable-next-line nuxt/no-cjs-in-config
 module.exports = {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -17,6 +19,7 @@ module.exports = {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/css/temagral.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -43,8 +46,12 @@ module.exports = {
     '@nuxtjs/firebase',
     '@nuxtjs/dotenv'
   ],
+  loading: {
+    color: 'blue',
+    height: '5px'
+  },
   env:{
-    functions:process.env.FB_FUNCTION_LOCAL, /* FB_FUNCTION_LOCAL, FB_FUNCTION_DEV, FB_FUNCTION_PROD */
+    functions: apirest === 'local' ? process.env.NODE_ENV==='development' ? process.env.FB_FUNCTION_LOCAL : process.env.FB_FUNCTION_PROD : process.env.FB_FUNCTION_PROD, /* FB_FUNCTION_LOCAL, FB_FUNCTION_DEV, FB_FUNCTION_PROD */
   },
   firebase: {
     config: {
@@ -113,7 +120,7 @@ module.exports = {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     extend () {
-      console.log('Conectado a: ' + process.env.FB_PROJECTID)
+      console.log('api desarrollo: ' + process.env.functions)
 
     }
   }

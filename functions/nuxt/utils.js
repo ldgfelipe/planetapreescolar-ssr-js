@@ -200,7 +200,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: app.router.options.base,
-      env: {"functions":"http://localhost:5001/educadorafirebase/us-central1/api","FB_APIKEY":"AIzaSyB8GyvM9PdvjufoAyEZv2uRQLVhVQM-Z-o","FB_AUTHDOMAIN":"educadorafirebase.firebaseapp.com","FB_DATABASEURL":"https://educadorafirebase.firebaseio.com","FB_PROJECTID":"educadorafirebase","FB_STORAGEBUCKERT":"educadorafirebase.appspot.com","FB_MESSAGINGSENDERID":"4922270561","FB_APPID":"1:4922270561:web:d12332e6277b143e5c9b20","FB_MEASUREMENTID":"G-E7Y6JTQG51","FB_FUNCTION_LOCAL":"http://localhost:5001/educadorafirebase/us-central1/api","FB_FUNCTION_DEV":"https://us-central1-educadorafirebase.cloudfunctions.net/api","FB_FUNCTION_PRODs":"https://us-central1-educadorafirebase.cloudfunctions.net/api"}
+      env: {"functions":"https://us-central1-educadorafirebase.cloudfunctions.net/api","FB_APIKEY":"AIzaSyB8GyvM9PdvjufoAyEZv2uRQLVhVQM-Z-o","FB_AUTHDOMAIN":"educadorafirebase.firebaseapp.com","FB_DATABASEURL":"https://educadorafirebase.firebaseio.com","FB_PROJECTID":"educadorafirebase","FB_STORAGEBUCKERT":"educadorafirebase.appspot.com","FB_MESSAGINGSENDERID":"4922270561","FB_APPID":"1:4922270561:web:d12332e6277b143e5c9b20","FB_MEASUREMENTID":"G-E7Y6JTQG51","FB_FUNCTION_LOCAL":"http://localhost:5001/educadorafirebase/us-central1/api","FB_FUNCTION_DEV":"https://us-central1-educadorafirebase.cloudfunctions.net/api","FB_FUNCTION_PROD":"https://us-central1-educadorafirebase.cloudfunctions.net/api"}
     }
     // Only set once
 
