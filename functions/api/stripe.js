@@ -18,3 +18,4 @@ router.post('/cancela_suscripcion',async(req,res)=>{
 
 })
 
+module.exports = router;

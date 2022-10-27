@@ -1,14 +1,23 @@
 {
-  "HeadersMenu": {
-    "description": "Auto imported from components/headers/menu.vue"
-  },
   "ContentBuscador": {
     "description": "Auto imported from components/content/buscador.vue"
   },
-  "ContentRecursos": {
-    "description": "Auto imported from components/content/recursos.vue"
+  "HeadersMenu": {
+    "description": "Auto imported from components/headers/menu.vue"
+  },
+  "Recursos": {
+    "description": "Auto imported from components/recursos/recursos.vue"
+  },
+  "AdministracionUsuariosContador": {
+    "description": "Auto imported from components/administracion/usuarios/contador.vue"
   },
   "AdministracionUsuariosPerfilusuario": {
     "description": "Auto imported from components/administracion/usuarios/perfilusuario.vue"
+  },
+  "RecursosPfase1Tipo1": {
+    "description": "Auto imported from components/recursos/pfase1/tipo1.vue"
+  },
+  "RecursosPfase2Tipo1": {
+    "description": "Auto imported from components/recursos/pfase2/tipo1.vue"
   }
 }

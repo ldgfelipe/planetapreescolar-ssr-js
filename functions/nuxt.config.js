@@ -19,6 +19,7 @@ module.exports = {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/css/temagral.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -46,7 +47,7 @@ module.exports = {
     '@nuxtjs/dotenv'
   ],
   loading: {
-    color: 'blue',
+    color: '#ad227d',
     height: '5px'
   },
   env:{
@@ -75,7 +76,8 @@ module.exports = {
       }, // Just as example. Can be any other service.
   functions:{
         emulatorPORT:5001
-      }
+      },
+      firestore:true
     }
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

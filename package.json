@@ -16,6 +16,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/firebase": "^8.2.2",
+    "@nuxtjs/moment": "^1.6.1",
     "@nuxtjs/pwa": "^3.3.5",
     "@vuedoc/md": "^4.0.0-beta8",
     "@vuedoc/parser": "^4.0.0-beta12",
@@ -27,8 +28,10 @@
     "jsdoc-vuex-plugin": "^1.0.0",
     "jsdocs": "^1.0.0",
     "json-validator": "^0.0.34",
+    "moment": "^2.29.4",
     "nuxt": "^2.15.8",
     "vue": "^2.7.10",
+    "vue-pdf": "^4.3.0",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10",
     "vuetify": "^2.6.10"

@@ -1,7 +1,10 @@
-export const HeadersMenu = () => import('../../components/headers/menu.vue' /* webpackChunkName: "components/headers-menu" */).then(c => wrapFunctional(c.default || c))
 export const ContentBuscador = () => import('../../components/content/buscador.vue' /* webpackChunkName: "components/content-buscador" */).then(c => wrapFunctional(c.default || c))
-export const ContentRecursos = () => import('../../components/content/recursos.vue' /* webpackChunkName: "components/content-recursos" */).then(c => wrapFunctional(c.default || c))
+export const HeadersMenu = () => import('../../components/headers/menu.vue' /* webpackChunkName: "components/headers-menu" */).then(c => wrapFunctional(c.default || c))
+export const Recursos = () => import('../../components/recursos/recursos.vue' /* webpackChunkName: "components/recursos" */).then(c => wrapFunctional(c.default || c))
+export const AdministracionUsuariosContador = () => import('../../components/administracion/usuarios/contador.vue' /* webpackChunkName: "components/administracion-usuarios-contador" */).then(c => wrapFunctional(c.default || c))
 export const AdministracionUsuariosPerfilusuario = () => import('../../components/administracion/usuarios/perfilusuario.vue' /* webpackChunkName: "components/administracion-usuarios-perfilusuario" */).then(c => wrapFunctional(c.default || c))
+export const RecursosPfase1Tipo1 = () => import('../../components/recursos/pfase1/tipo1.vue' /* webpackChunkName: "components/recursos-pfase1-tipo1" */).then(c => wrapFunctional(c.default || c))
+export const RecursosPfase2Tipo1 = () => import('../../components/recursos/pfase2/tipo1.vue' /* webpackChunkName: "components/recursos-pfase2-tipo1" */).then(c => wrapFunctional(c.default || c))
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

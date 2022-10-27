@@ -1,20 +1,17 @@
-const express = require('express');
+const express = require("express");
 const admin = require("firebase-admin");
 
-const db = admin.firestore()
-const auth = admin.auth()
-    
-const {usuario} = require('./schemas')
-const router = express.Router()
+const db = admin.firestore();
+const auth = admin.auth();
 
-router.get('/test',(req,res)=>{ 
+const { usuario } = require("./schemas");
+const router = express.Router();
 
-    res.json({res:'prueba de admin api'})
-   
+router.get("/test", (req, res) => {
+  res.json({ res: "prueba de admin api" });
+});
 
-})
-
-/** 
+/**
  * @module api/users
  */
 
@@ -26,64 +23,70 @@ router.get('/test',(req,res)=>{
  * 
  */
 
-    router.post("/create", async (req, res) => {
-        
-        var payload =Object.assign(usuario,req.body)
+router.post("/create", async (req, res) => {
+  var payload = Object.assign(usuario, req.body);
 
-       await db.collection("usuarios")
-        .where("correo", "==", payload.correo).get()
-        .then((callback)=>{
-            console.log(callback.docs[0])
-         if(callback.empty===true){
-            db.collection("usuarios").add(payload)
-            .then((resp)=>{
-                auth.setCustomUserClaims(payload.uid, {
-                    admin:false,
-                    premium:false,
-                    level:0
-                })
-                .then()
-                res.json({code:1,id:resp._path.id,mensaje:'Usuario registrado correctamente'})
-            })
-         }else{
-            res.json({code:0,mensaje:'El usuario ya existe con este correo'})
-         }
-        })
-    })
+  await db
+    .collection("usuarios")
+    .where("correo", "==", payload.correo)
+    .get()
+    .then((callback) => {
+      console.log(callback.docs[0]);
+      if (callback.empty === true) {
+        db.collection("usuarios")
+          .add(payload)
+          .then((resp) => {
+            auth
+              .setCustomUserClaims(payload.uid, {
+                admin: false,
+                premium: false,
+                level: 0,
+              })
+              .then();
+            res.json({
+              code: 1,
+              id: resp._path.id,
+              mensaje: "Usuario registrado correctamente",
+            });
+          });
+      } else {
+        res.json({ code: 0, mensaje: "El usuario ya existe con este correo" });
+      }
+    });
+});
 
-   router.post("/addclaims", async (req, res)=>{
-    var payload =req.body
+router.post("/addclaims", async (req, res) => {
+     //// despues se verifica si cuena con alguna pago realizado o si su cuenta esta activa 
+    var payload = req.body;
+    var respuesta= "";
+    var  rescode=0;
+  db.collection("usuarios")
+    .where("correo", "==", payload.email)
+    .get()
+    .then((ret) => {
+      var data = ret.docs[0].data();
+      if (data.descargas && data.descargas.mes.active) {
+        console.log('si hay descargas ')
+        auth.setCustomUserClaims(payload.uid, {
+          admin: false,
+          premium: data.descargas.mes.active === true ? true : false,
+          level: data.descargas.mes.active === true ? 1 : 0,
+        });
+        respuesta = "Actualización correcta"
+        rescode=0 
+      } else {
+        console.log('No hay descargas ')
+        auth.setCustomUserClaims(payload.uid, {
+          admin: false,
+          premium: false,
+          level: 0,
+        });
+        respuesta = "Error de Actualización correcta"
+        rescode=0 
+      }
+    });
 
-    //// despues se verifica si cuena con alguna pago realizado o si su cuenta esta activa 
+  res.json({ res:respuesta,code:rescode });
+});
 
-    db.collection('usuarios').where('correo','==',payload.email).get()
-    .then((res)=>{
-        try{
-            var data=res.docs[0].data()
-            
-            auth.setCustomUserClaims(payload.uid, {
-                admin:false,
-                premium:data.descargas.mes.active===true ? true : false,
-                level:data.descargas.mes.active===true ? 1 : 0
-            })
-            res.json({res:'Actualización correcta', code:1})
-        }catch(error){
-
-            auth.setCustomUserClaims(payload.uid, {
-                admin:false,
-                premium:false,
-                level:0
-            })
-            res.json({res:'Error de Actualización correcta', code:0,detalles:error})
-        }
-    
-    })
-   
-
-    res.json({res:'Registro claims correcto'})
-   })
-
-   
-
-
-module.exports = router
+module.exports = router;

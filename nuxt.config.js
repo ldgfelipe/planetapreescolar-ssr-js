@@ -24,6 +24,7 @@ module.exports = {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '@/plugins/vue-pdf.js', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -34,7 +35,8 @@ module.exports = {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/moment',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -44,10 +46,15 @@ module.exports = {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/firebase',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/moment',
   ],
+  moment: {
+    defaultTimezone: 'America/Los_Angeles',
+    locales: ['es']
+  },
   loading: {
-    color: 'blue',
+    color: '#ad227d',
     height: '5px'
   },
   env:{
@@ -76,7 +83,8 @@ module.exports = {
       }, // Just as example. Can be any other service.
   functions:{
         emulatorPORT:5001
-      }
+      },
+      firestore:true
     }
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

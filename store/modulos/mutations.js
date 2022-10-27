@@ -1,3 +1,5 @@
+import { state } from "./state"
+
 export const mutations = {
   /**
    * @type Mutations
@@ -19,5 +21,26 @@ export const mutations = {
     state.claims={admin, level, premium}
     state.is_login=email ? true : false 
     }
+  },
+  seleccionaRecurso(state,data){
+    state.recursoSelect=data
+  },
+  vistafase1(state,data){
+    state.dialogfase1=data
+  },
+  vistafase2(state,data){
+    state.dialogfase2=data
+  },
+  agregaRelacionados(state,data){
+    state.relacionados=data
+  },
+  vistaAlertas(state,data){
+    state.dialogalerta=data
+  },
+  cargaTipoalerta(state,data){
+    state.tipoalerta=data
+  },
+  actualizaDescargas(state,data){
+    state.descargas=data
   }
 }
