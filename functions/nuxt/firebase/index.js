@@ -2,6 +2,7 @@ import createApp from './app.js'
 
 import authService from './service.auth.js'
 import firestoreService from './service.firestore.js'
+import storageService from './service.storage.js'
 import functionsService from './service.functions.js'
 
 const appConfig = {"apiKey":"AIzaSyB8GyvM9PdvjufoAyEZv2uRQLVhVQM-Z-o","authDomain":"educadorafirebase.firebaseapp.com","databaseURL":"https:\u002F\u002Feducadorafirebase.firebaseio.com","projectId":"educadorafirebase","storageBucket":"educadorafirebase.appspot.com","messagingSenderId":"4922270561","appId":"1:4922270561:web:d12332e6277b143e5c9b20","measurementId":"G-E7Y6JTQG51"}
@@ -15,6 +16,7 @@ export default async (ctx, inject) => {
     servicePromises = [
       authService(session, firebase, ctx, inject),
     firestoreService(session, firebase, ctx, inject),
+    storageService(session, firebase, ctx, inject),
     functionsService(session, firebase, ctx, inject),
 
     ]
@@ -24,6 +26,7 @@ export default async (ctx, inject) => {
     servicePromises = [
       authService(session, firebase, ctx, inject),
       firestoreService(session, firebase, ctx, inject),
+      storageService(session, firebase, ctx, inject),
       functionsService(session, firebase, ctx, inject),
 
     ]
@@ -32,12 +35,14 @@ export default async (ctx, inject) => {
   const [
     auth,
     firestore,
+    storage,
     functions
   ] = await Promise.all(servicePromises)
 
   const fire = {
     auth: auth,
     firestore: firestore,
+    storage: storage,
     functions: functions
   }
 

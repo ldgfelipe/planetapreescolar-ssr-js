@@ -57,7 +57,7 @@
                         placeholder="Cargando..."
                       ></pdf>
                       <div
-                        v-if="!claims.premium && pag !== 1"
+                        v-if="recursoSelect.premium && !claims.premium && pag !== 1"
                         style="
                           position: absolute;
                           top: 0px;
@@ -116,17 +116,18 @@ export default {
     ...mapState(["dialogfase2", "recursoSelect", "claims", "is_login"]),
   },
   mounted() {
+    if(this.recursoSelect.urlVista){
     this.cargaPDF();
+    }
   },
   methods: {
     ...mapMutations(["vistafase2", "vistaAlertas", "cargaTipoalerta"]),
     DescargarArchivo() {
-      if (!this.claims.premium) {
+      if (this.recursoSelect.premium && !this.claims.premium ) {
         this.vistaAlertas(true);
         this.cargaTipoalerta(1);
       } else {
-        alert("descargando archivo");
-        /// inicia descarga
+        this.DescargaFuncion()
       }
     },
     cerrarVentana() {
@@ -142,6 +143,56 @@ export default {
           this.numPages = pd._pdfInfo.numPages;
         });
     },
+    DescargaFuncion(){
+       var nombrearchivo=""
+       var tipefile=""
+          const xhr = new XMLHttpRequest();
+          xhr.responseType = 'blob';
+          xhr.onload = (event) => {
+            const blob = xhr.response;
+            console.log(blob.type)
+            switch(blob.type){
+                case 'application/pdf':
+               
+                    console.log('descarga pdf')
+                    nombrearchivo=this.recursoSelect.titulo+".pdf";
+                break;
+                case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+                    console.log('descarga docx')
+                    nombrearchivo=this.recursoSelect.titulo+".docx";
+                break;
+                case 'application/vnd.openxmlformats-officedocument.presentationml.presentation':
+                case 'application/vnd.ms-powerpoint':  
+                case 'application/vnd.openxmlformats-officedocument.presentationml.slideshow':
+                    console.log('descarga ppt')
+                    nombrearchivo=this.recursoSelect.titulo+".ppt";
+                break;
+              
+            }
+            var urlvista=URL.createObjectURL(blob, {
+               type: blob.type
+            });
+            tipefile=blob.type
+            this.forceDownload(nombrearchivo,tipefile)
+
+
+          };
+          xhr.open('GET',this.recursoSelect.urlDescargable);
+          xhr.send();
+          
+    },
+    forceDownload(label,filetype){
+        
+      this.$axios.get(this.recursoSelect.urlDescargable, { responseType: 'blob' })
+      .then(response => {
+        const blob = new Blob([response.data], { type: filetype})
+        const link = document.createElement('a')
+        link.href = URL.createObjectURL(blob)
+        link.download = label
+        link.click()
+        URL.revokeObjectURL(link.href)
+      }).catch(console.error)
+    }
   },
 };
 </script>

@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[14],{537:function(n,t,r){"use strict";r.r(t);var e=r(57),component=Object(e.a)({},(function(){return(0,this._self._c)("div",[this._v("\nAdministrador    recursos\n")])}),[],!1,null,null,null);t.default=component.exports}}]);

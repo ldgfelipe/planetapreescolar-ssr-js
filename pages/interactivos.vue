@@ -18,7 +18,7 @@
                   <v-btn class="melon white--text" @click="cargarmasrecursos()">Cargar Más...</v-btn>
               </v-col>
           </v-row>
-        
+          <dialogfase1></dialogfase1>
         </v-card-text>
       </v-card>
     </div>
@@ -26,6 +26,7 @@
   <script>
   import buscador from "@/components/content/buscador";
   import listaRecursos from '@/components/recursos/recursos'
+  import dialogfase1 from '@/components/recursos/pfase1/tipo1.vue'
   var last=null
   export default {
    async asyncData({ app, params, error }){
@@ -120,7 +121,8 @@
     },
     components: {
       buscador,
-      listaRecursos
+      listaRecursos,
+      dialogfase1
     },
   };
   </script>

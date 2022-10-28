@@ -11,5 +11,6 @@ You can directly use them in pages and other components without the need to impo
 - `<Recursos>` | `<recursos>` (components/recursos/recursos.vue)
 - `<AdministracionUsuariosContador>` | `<administracion-usuarios-contador>` (components/administracion/usuarios/contador.vue)
 - `<AdministracionUsuariosPerfilusuario>` | `<administracion-usuarios-perfilusuario>` (components/administracion/usuarios/perfilusuario.vue)
+- `<RecursosAlertas>` | `<recursos-alertas>` (components/recursos/alertas/alertas.vue)
 - `<RecursosPfase1Tipo1>` | `<recursos-pfase1-tipo1>` (components/recursos/pfase1/tipo1.vue)
 - `<RecursosPfase2Tipo1>` | `<recursos-pfase2-tipo1>` (components/recursos/pfase2/tipo1.vue)

@@ -50,6 +50,7 @@
   </v-card>
 </template>
 <script>
+import {mapMutations} from 'vuex'
 export default {
   data() {
     return {
@@ -67,6 +68,7 @@ export default {
     };
   },
   methods: {
+    ...mapMutations(['actualizaDescargas']),
     passview() {
       // eslint-disable-next-line no-unneeded-ternary
       this.viewpass = this.viewpass ? false : true;
@@ -119,6 +121,7 @@ export default {
         })
           .then((res) => res.json())
           .then((res) => {
+
             this.$router.push("/");
           });
       }

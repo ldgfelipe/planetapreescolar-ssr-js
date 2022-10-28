@@ -14,6 +14,9 @@
   "AdministracionUsuariosPerfilusuario": {
     "description": "Auto imported from components/administracion/usuarios/perfilusuario.vue"
   },
+  "RecursosAlertas": {
+    "description": "Auto imported from components/recursos/alertas/alertas.vue"
+  },
   "RecursosPfase1Tipo1": {
     "description": "Auto imported from components/recursos/pfase1/tipo1.vue"
   },

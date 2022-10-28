@@ -9,6 +9,7 @@ const _4199ef49 = () => interopDefault(import('../pages/administrador.vue' /* we
 const _25610d25 = () => interopDefault(import('../pages/alianzas.vue' /* webpackChunkName: "pages/alianzas" */))
 const _fe7407ec = () => interopDefault(import('../pages/aviso-de-privacidad.vue' /* webpackChunkName: "pages/aviso-de-privacidad" */))
 const _28e55246 = () => interopDefault(import('../pages/blog.vue' /* webpackChunkName: "pages/blog" */))
+const _4588d02c = () => interopDefault(import('../pages/checkout.vue' /* webpackChunkName: "pages/checkout" */))
 const _6cabfd6a = () => interopDefault(import('../pages/foro.vue' /* webpackChunkName: "pages/foro" */))
 const _756b0c52 = () => interopDefault(import('../pages/hojas-de-trabajo.vue' /* webpackChunkName: "pages/hojas-de-trabajo" */))
 const _51343758 = () => interopDefault(import('../pages/hojas-para-colorear.vue' /* webpackChunkName: "pages/hojas-para-colorear" */))
@@ -60,6 +61,10 @@ export const routerOptions = {
     path: "/blog",
     component: _28e55246,
     name: "blog"
+  }, {
+    path: "/checkout",
+    component: _4588d02c,
+    name: "checkout"
   }, {
     path: "/foro",
     component: _6cabfd6a,

@@ -88,7 +88,7 @@ export default {
         if(this.dialogfase1===false){
           relacion.splice(posicion,1)
         }else{
-          this.scrollToTop()
+       // this.scrollToTop()
           this.vistafase1(false)
           relacion.push(this.recursoSelect)
           relacion.splice(posicion,1)

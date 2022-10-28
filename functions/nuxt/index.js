@@ -15,12 +15,14 @@ import { createStore } from './store.js'
 
 import nuxt_plugin_plugin_5c0442ea from 'nuxt_plugin_plugin_5c0442ea' // Source: ./components/plugin.js (mode: 'all')
 import nuxt_plugin_plugin_677c0d78 from 'nuxt_plugin_plugin_677c0d78' // Source: ./vuetify/plugin.js (mode: 'all')
-import nuxt_plugin_index_e7344ae4 from 'nuxt_plugin_index_e7344ae4' // Source: ./firebase/index.js (mode: 'all')
-import nuxt_plugin_serviceauthinitialize_1ae3e63a from 'nuxt_plugin_serviceauthinitialize_1ae3e63a' // Source: ./firebase/service.auth.initialize.js (mode: 'all')
 import nuxt_plugin_workbox_2d59321c from 'nuxt_plugin_workbox_2d59321c' // Source: ./workbox.js (mode: 'client')
 import nuxt_plugin_metaplugin_1adc9d2f from 'nuxt_plugin_metaplugin_1adc9d2f' // Source: ./pwa/meta.plugin.js (mode: 'all')
 import nuxt_plugin_iconplugin_1f8442a3 from 'nuxt_plugin_iconplugin_1f8442a3' // Source: ./pwa/icon.plugin.js (mode: 'all')
 import nuxt_plugin_axios_fed80600 from 'nuxt_plugin_axios_fed80600' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_index_e7344ae4 from 'nuxt_plugin_index_e7344ae4' // Source: ./firebase/index.js (mode: 'all')
+import nuxt_plugin_serviceauthinitialize_1ae3e63a from 'nuxt_plugin_serviceauthinitialize_1ae3e63a' // Source: ./firebase/service.auth.initialize.js (mode: 'all')
+import nuxt_plugin_moment_bed196d0 from 'nuxt_plugin_moment_bed196d0' // Source: ./moment.js (mode: 'all')
+import nuxt_plugin_vuepdf_492e4240 from 'nuxt_plugin_vuepdf_492e4240' // Source: ../plugins/vue-pdf.js (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -225,14 +227,6 @@ async function createApp(ssrContext, config = {}) {
     await nuxt_plugin_plugin_677c0d78(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_index_e7344ae4 === 'function') {
-    await nuxt_plugin_index_e7344ae4(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_serviceauthinitialize_1ae3e63a === 'function') {
-    await nuxt_plugin_serviceauthinitialize_1ae3e63a(app.context, inject)
-  }
-
   if (process.client && typeof nuxt_plugin_workbox_2d59321c === 'function') {
     await nuxt_plugin_workbox_2d59321c(app.context, inject)
   }
@@ -247,6 +241,22 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_axios_fed80600 === 'function') {
     await nuxt_plugin_axios_fed80600(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_index_e7344ae4 === 'function') {
+    await nuxt_plugin_index_e7344ae4(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_serviceauthinitialize_1ae3e63a === 'function') {
+    await nuxt_plugin_serviceauthinitialize_1ae3e63a(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_moment_bed196d0 === 'function') {
+    await nuxt_plugin_moment_bed196d0(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_vuepdf_492e4240 === 'function') {
+    await nuxt_plugin_vuepdf_492e4240(app.context, inject)
   }
 
   // Lock enablePreview in context

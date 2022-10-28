@@ -35,6 +35,13 @@
     "_name": "_28e55246"
   },
   {
+    "name": "checkout",
+    "path": "/checkout",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/checkout.vue",
+    "chunkName": "pages/checkout",
+    "_name": "_4588d02c"
+  },
+  {
     "name": "foro",
     "path": "/foro",
     "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/foro.vue",

@@ -37,6 +37,7 @@ module.exports = {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/moment',
+    '@nuxtjs/firebase'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -84,7 +85,13 @@ module.exports = {
   functions:{
         emulatorPORT:5001
       },
-      firestore:true
+      firestore:{
+        memoryOnly: false, // defaultt
+        enablePersistence: true,
+        persistence: 'local'
+
+      },
+      storage:true
     }
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
