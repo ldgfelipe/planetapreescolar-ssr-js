@@ -42,6 +42,20 @@
     "_name": "_4588d02c"
   },
   {
+    "name": "descargas",
+    "path": "/descargas",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/descargas.vue",
+    "chunkName": "pages/descargas",
+    "_name": "_31c6c2a3"
+  },
+  {
+    "name": "favoritos",
+    "path": "/favoritos",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/favoritos.vue",
+    "chunkName": "pages/favoritos",
+    "_name": "_1b5b4619"
+  },
+  {
     "name": "foro",
     "path": "/foro",
     "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/foro.vue",
@@ -89,6 +103,13 @@
     "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/material-didactico.vue",
     "chunkName": "pages/material-didactico",
     "_name": "_97ac4d00"
+  },
+  {
+    "name": "perfil",
+    "path": "/perfil",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/perfil.vue",
+    "chunkName": "pages/perfil",
+    "_name": "_39bd5470"
   },
   {
     "name": "planeaciones",
@@ -147,11 +168,25 @@
     "_name": "_9afeb598"
   },
   {
+    "name": "suscripcion",
+    "path": "/suscripcion",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/suscripcion.vue",
+    "chunkName": "pages/suscripcion",
+    "_name": "_260cca10"
+  },
+  {
     "name": "terminos-y-condiciones",
     "path": "/terminos-y-condiciones",
     "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/terminos-y-condiciones.vue",
     "chunkName": "pages/terminos-y-condiciones",
     "_name": "_60230732"
+  },
+  {
+    "name": "tutoriales",
+    "path": "/tutoriales",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/tutoriales.vue",
+    "chunkName": "pages/tutoriales",
+    "_name": "_573305a0"
   },
   {
     "name": "adminpages-recursos",

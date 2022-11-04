@@ -42,5 +42,14 @@ export const mutations = {
   },
   actualizaDescargas(state,data){
     state.descargas=data
+  },
+  cambiaLoadDescarga(state,data){
+    state.loadDescarga=data
+  },
+  camiaStatusAudio(state,data){
+    state.statusaudio=data
+  },
+  cambiaUserdatacollect(state,data){
+    state.userdatacollect=data
   }
 }

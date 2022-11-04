@@ -22,9 +22,20 @@
               {{ $moment(recursoSelect.fecha).format("DD MMMM YYYY") }}
             </p>
 
-            <v-btn class="melon white--text" @click="DescargarArchivo()"
-              >Descargar <v-icon>mdi-download</v-icon></v-btn
-            >
+            <v-btn
+                  v-if="!loadDescarga"
+                  class="melon white--text"
+                  @click="DescargarArchivo()"
+                  >Descargar</v-btn
+                >
+
+                <v-progress-circular
+                v-if="loadDescarga"
+                  :size="70"
+                  :width="7"
+                  color="purple"
+                  indeterminate
+                ></v-progress-circular>
           </v-card-text>
           <v-card-title>
             Paginas: {{ numPages }} <v-spacer></v-spacer>
@@ -100,7 +111,7 @@
   </v-dialog>
 </template>
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations,mapActions } from "vuex";
 
 export default {
   data() {
@@ -113,7 +124,8 @@ export default {
     };
   },
   computed: {
-    ...mapState(["dialogfase2", "recursoSelect", "claims", "is_login"]),
+    ...mapState(["dialogfase2", "recursoSelect", "claims", "is_login","loadDescarga"]),
+    
   },
   mounted() {
     if(this.recursoSelect.urlVista){
@@ -122,13 +134,9 @@ export default {
   },
   methods: {
     ...mapMutations(["vistafase2", "vistaAlertas", "cargaTipoalerta"]),
-    DescargarArchivo() {
-      if (this.recursoSelect.premium && !this.claims.premium ) {
-        this.vistaAlertas(true);
-        this.cargaTipoalerta(1);
-      } else {
-        this.DescargaFuncion()
-      }
+    ...mapActions(['ValidaDescargarArchivo']),
+    DescargarArchivo(){
+      this.ValidaDescargarArchivo()
     },
     cerrarVentana() {
       this.vistafase2(false);
@@ -143,56 +151,8 @@ export default {
           this.numPages = pd._pdfInfo.numPages;
         });
     },
-    DescargaFuncion(){
-       var nombrearchivo=""
-       var tipefile=""
-          const xhr = new XMLHttpRequest();
-          xhr.responseType = 'blob';
-          xhr.onload = (event) => {
-            const blob = xhr.response;
-            console.log(blob.type)
-            switch(blob.type){
-                case 'application/pdf':
-               
-                    console.log('descarga pdf')
-                    nombrearchivo=this.recursoSelect.titulo+".pdf";
-                break;
-                case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
-                    console.log('descarga docx')
-                    nombrearchivo=this.recursoSelect.titulo+".docx";
-                break;
-                case 'application/vnd.openxmlformats-officedocument.presentationml.presentation':
-                case 'application/vnd.ms-powerpoint':  
-                case 'application/vnd.openxmlformats-officedocument.presentationml.slideshow':
-                    console.log('descarga ppt')
-                    nombrearchivo=this.recursoSelect.titulo+".ppt";
-                break;
-              
-            }
-            var urlvista=URL.createObjectURL(blob, {
-               type: blob.type
-            });
-            tipefile=blob.type
-            this.forceDownload(nombrearchivo,tipefile)
-
-
-          };
-          xhr.open('GET',this.recursoSelect.urlDescargable);
-          xhr.send();
-          
-    },
-    forceDownload(label,filetype){
-        
-      this.$axios.get(this.recursoSelect.urlDescargable, { responseType: 'blob' })
-      .then(response => {
-        const blob = new Blob([response.data], { type: filetype})
-        const link = document.createElement('a')
-        link.href = URL.createObjectURL(blob)
-        link.download = label
-        link.click()
-        URL.revokeObjectURL(link.href)
-      }).catch(console.error)
-    }
+   
+    
   },
 };
 </script>

@@ -40,7 +40,10 @@
              
              // app.store.commit( 'updatelast',)
               res.forEach((res)=>{
-                  arraydata.push(res.data())
+                let recurso=[]
+              recurso=res.data()
+              recurso.idRecurso=res.id
+                arraydata.push(recurso)
               })
               return {
                   arrayrecursos:arraydata
@@ -103,7 +106,10 @@
           .then((res)=>{
             this.last=res.docs[res.docs.length-1] 
             res.forEach((snap)=>{
-                  this.arrayrecursos.push(snap.data())
+              let recurso=[]
+              recurso=snap.data()
+              recurso.idRecurso=res.id
+                this.arrayrecursos.push(recurso)
               })
           })
   

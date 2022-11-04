@@ -18,7 +18,7 @@
                   <v-btn class="melon white--text" @click="cargarmasrecursos()">Cargar Más...</v-btn>
               </v-col>
           </v-row>
-        
+          <Blog></Blog>
         </v-card-text>
       </v-card>
     </div>
@@ -26,6 +26,7 @@
   <script>
   import buscador from "@/components/content/buscador";
   import listaRecursos from '@/components/recursos/recursos'
+  import Blog from '@/components/recursos/pfase1/blog.vue'
   var last=null
   export default {
    async asyncData({ app, params, error }){
@@ -39,7 +40,10 @@
              
              // app.store.commit( 'updatelast',)
               res.forEach((res)=>{
-                  arraydata.push(res.data())
+                let recurso=[]
+              recurso=res.data()
+              recurso.idRecurso=res.id
+                arraydata.push(recurso)
               })
               return {
                   arrayrecursos:arraydata
@@ -102,7 +106,10 @@
           .then((res)=>{
             this.last=res.docs[res.docs.length-1] 
             res.forEach((snap)=>{
-                  this.arrayrecursos.push(snap.data())
+              let recurso=[]
+              recurso=snap.data()
+              recurso.idRecurso=res.id
+                  this.arrayrecursos.push(recurso)
               })
           })
   
@@ -120,7 +127,8 @@
     },
     components: {
       buscador,
-      listaRecursos
+      listaRecursos,
+      Blog
     },
   };
   </script>

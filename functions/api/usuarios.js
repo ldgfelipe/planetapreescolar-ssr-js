@@ -48,6 +48,8 @@ router.post("/create", async (req, res) => {
               id: resp._path.id,
               mensaje: "Usuario registrado correctamente",
             });
+
+            
           });
       } else {
         res.json({ code: 0, mensaje: "El usuario ya existe con este correo" });
@@ -64,6 +66,7 @@ router.post("/addclaims", async (req, res) => {
     .where("correo", "==", payload.email)
     .get()
     .then((ret) => {
+      if(!ret.empty){
       var data = ret.docs[0].data();
       if (data.descargas && data.descargas.mes.active) {
         console.log('si hay descargas ')
@@ -84,6 +87,9 @@ router.post("/addclaims", async (req, res) => {
         respuesta = "Error de Actualización correcta"
         rescode=0 
       }
+    }else{
+      // crear si no existe 
+    }
     });
 
   res.json({ res:respuesta,code:rescode });

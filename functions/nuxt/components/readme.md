@@ -8,9 +8,12 @@ You can directly use them in pages and other components without the need to impo
 
 - `<ContentBuscador>` | `<content-buscador>` (components/content/buscador.vue)
 - `<HeadersMenu>` | `<headers-menu>` (components/headers/menu.vue)
+- `<HeadersMenuperfil>` | `<headers-menuperfil>` (components/headers/menuperfil.vue)
 - `<Recursos>` | `<recursos>` (components/recursos/recursos.vue)
 - `<AdministracionUsuariosContador>` | `<administracion-usuarios-contador>` (components/administracion/usuarios/contador.vue)
 - `<AdministracionUsuariosPerfilusuario>` | `<administracion-usuarios-perfilusuario>` (components/administracion/usuarios/perfilusuario.vue)
 - `<RecursosAlertas>` | `<recursos-alertas>` (components/recursos/alertas/alertas.vue)
 - `<RecursosPfase1Tipo1>` | `<recursos-pfase1-tipo1>` (components/recursos/pfase1/tipo1.vue)
+- `<RecursosPfase1Tipo2>` | `<recursos-pfase1-tipo2>` (components/recursos/pfase1/tipo2.vue)
+- `<RecursosPfase1Tipo3>` | `<recursos-pfase1-tipo3>` (components/recursos/pfase1/tipo3.vue)
 - `<RecursosPfase2Tipo1>` | `<recursos-pfase2-tipo1>` (components/recursos/pfase2/tipo1.vue)

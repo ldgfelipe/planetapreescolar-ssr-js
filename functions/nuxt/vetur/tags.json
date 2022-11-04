@@ -5,6 +5,9 @@
   "HeadersMenu": {
     "description": "Auto imported from components/headers/menu.vue"
   },
+  "HeadersMenuperfil": {
+    "description": "Auto imported from components/headers/menuperfil.vue"
+  },
   "Recursos": {
     "description": "Auto imported from components/recursos/recursos.vue"
   },
@@ -19,6 +22,12 @@
   },
   "RecursosPfase1Tipo1": {
     "description": "Auto imported from components/recursos/pfase1/tipo1.vue"
+  },
+  "RecursosPfase1Tipo2": {
+    "description": "Auto imported from components/recursos/pfase1/tipo2.vue"
+  },
+  "RecursosPfase1Tipo3": {
+    "description": "Auto imported from components/recursos/pfase1/tipo3.vue"
   },
   "RecursosPfase2Tipo1": {
     "description": "Auto imported from components/recursos/pfase2/tipo1.vue"

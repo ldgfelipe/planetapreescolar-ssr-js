@@ -100,7 +100,7 @@ export default {
         },
         {
           icon: 'mdi-forum',
-          title: 'foro',
+          title: 'Foro',
           to: '/foro',
           admin:false,
           login:false

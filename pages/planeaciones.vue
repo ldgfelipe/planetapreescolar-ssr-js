@@ -27,7 +27,6 @@
 import buscador from "@/components/content/buscador";
 import listaRecursos from '@/components/recursos/recursos'
 import dialogfase1 from '@/components/recursos/pfase1/tipo1.vue'
-
 var last=null
 export default {
  async asyncData({ app, params, error }){
@@ -41,7 +40,10 @@ return app.$fire.firestore.collection('CATEGORIAS')
            
            // app.store.commit( 'updatelast',)
             res.forEach((res)=>{
-                arraydata.push(res.data())
+              let recurso=[]
+              recurso=res.data()
+              recurso.idRecurso=res.id
+                arraydata.push(recurso)
             })
             return {
                 arrayrecursos:arraydata
@@ -104,7 +106,10 @@ return app.$fire.firestore.collection('CATEGORIAS')
         .then((res)=>{
           this.last=res.docs[res.docs.length-1] 
           res.forEach((snap)=>{
-                this.arrayrecursos.push(snap.data())
+            let recurso=[]
+              recurso=snap.data()
+              recurso.idRecurso=res.id
+                this.arrayrecursos.push(recurso)
             })
         })
 
