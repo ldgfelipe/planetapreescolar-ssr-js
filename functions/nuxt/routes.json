@@ -35,6 +35,13 @@
     "_name": "_28e55246"
   },
   {
+    "name": "cancelado",
+    "path": "/cancelado",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/cancelado.vue",
+    "chunkName": "pages/cancelado",
+    "_name": "_355dc004"
+  },
+  {
     "name": "checkout",
     "path": "/checkout",
     "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/checkout.vue",
@@ -168,6 +175,13 @@
     "_name": "_9afeb598"
   },
   {
+    "name": "success",
+    "path": "/success",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/success.vue",
+    "chunkName": "pages/success",
+    "_name": "_5590fc8f"
+  },
+  {
     "name": "suscripcion",
     "path": "/suscripcion",
     "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/suscripcion.vue",
@@ -201,6 +215,13 @@
     "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/adminpages/usuarios.vue",
     "chunkName": "pages/adminpages/usuarios",
     "_name": "_493a82ea"
+  },
+  {
+    "name": "foros-foro",
+    "path": "/foros/:foro?",
+    "component": "/Applications/XAMPP/xamppfiles/htdocs/workarea/NODE/planetapreescolar-ssr-js/pages/foros/_foro.vue",
+    "chunkName": "pages/foros/_foro",
+    "_name": "_5d5e740f"
   },
   {
     "name": "index",

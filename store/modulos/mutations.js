@@ -51,5 +51,18 @@ export const mutations = {
   },
   cambiaUserdatacollect(state,data){
     state.userdatacollect=data
+  },
+  cambiaLoginPop(state,data){
+    console.log('cambia login pop')
+    state.loginpop=data
+  },
+  cambiaidAuth(state,data){
+    state.idAuth=data
+  },
+  cambiaPago(state,data){
+    state.pago=data
+  },
+  cambiaClaims(state,data){
+    state.claims=data
   }
 }

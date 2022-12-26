@@ -1,6 +1,11 @@
 <template>
-  <v-card max-width="600" class="text-center ma-auto mt-5">
-    <v-card-title class="morado white--text"> Inicia Sesión </v-card-title>
+    <v-dialog v-model="loginpop" max-width="600" persistent> 
+        <v-card max-width="600" class="text-center ma-auto mt-5">
+    <v-card-title class="morado white--text"> Inicia Sesión 
+        <v-spacer></v-spacer> 
+    <v-btn class="melon white--text" @click="cambiaLoginPop(false)"><v-icon>mdi-close</v-icon></v-btn>
+    
+    </v-card-title>
     <v-card-text class="pt-10">
       <v-form ref="form" v-model="valid" lazy-validation>
         <v-text-field
@@ -8,6 +13,7 @@
           label="Usuario"
           v-model="datalogin.email"
           :rules="[rules.required, rules.email]"
+          @keyup.enter="iniciarSesion()"
         />
         <v-text-field
           v-model="datalogin.pass"
@@ -17,6 +23,7 @@
           :append-icon="viewpass ? 'mdi-eye' : 'mdi-eye-off'"
           :rules="[rules.required]"
           @click:append="passview()"
+          @keyup.enter="iniciarSesion()"
         />
 
         <v-btn class="morado white--text" block @click="iniciarSesion()">
@@ -48,9 +55,10 @@
       </v-form>
     </v-card-text>
   </v-card>
+    </v-dialog>
 </template>
 <script>
-import {mapMutations} from 'vuex'
+import {mapMutations,mapState} from 'vuex'
 export default {
   data() {
     return {
@@ -67,8 +75,11 @@ export default {
       },
     };
   },
+  computed:{
+    ...mapState(['loginpop'])
+  },
   methods: {
-    ...mapMutations(['actualizaDescargas','cambiaidAuth']),
+    ...mapMutations(['actualizaDescargas','cambiaLoginPop','cambiaidAuth','cambiaPago']),
     passview() {
       // eslint-disable-next-line no-unneeded-ternary
       this.viewpass = this.viewpass ? false : true;
@@ -107,11 +118,12 @@ export default {
       }
     },
     validaClaims(userCredential) {
-
       var user = userCredential.user;
-     
+
+      this.cambiaidAuth(user.uid)
       if (userCredential.customClaims) {
-        this.$router.push("/");
+
+       this.cambiaLoginPop(false)
       } else {
         fetch(process.env.functions + "/v1/users/addclaims", {
           method: "POST",
@@ -121,10 +133,17 @@ export default {
           },
           body: JSON.stringify(user),
         })
-          .then((res) => res.json())
-          .then((res) => {
-
-            this.$router.push("/");
+          .then(res => res.json())
+          .then((resp) => {
+            console.log(resp)
+            if(resp.pago){
+              if(resp.pago){
+              this.cambiaPago(resp.pago)
+              }
+              this.cambiaLoginPop(false)
+              }
+            //this.$router.push("/");
+           
           });
       }
     },

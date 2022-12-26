@@ -10,7 +10,7 @@
                         <h3 class="primary--text">{{key.titulo}}</h3>
                         <p v-html="key.cuerpo.substr(0,200)"></p>
                         <v-row>
-                            <v-col cols="5">
+                            <v-col cols="5" v-if="disable" >
                                 <v-icon>mdi-star</v-icon> <v-icon>mdi-star</v-icon> <v-icon>mdi-star</v-icon> <v-icon>mdi-star</v-icon> <v-icon>mdi-star</v-icon>
                             </v-col>
                             <v-col cols="2">
@@ -51,7 +51,8 @@ return app.$fire.firestore.collection('foro')
                 arraydata.push(recurso)
             })
             return {
-                arrayrecursos:arraydata
+                arrayrecursos:arraydata,
+                disable:false
             }
         })
   },

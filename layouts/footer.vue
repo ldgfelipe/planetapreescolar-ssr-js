@@ -60,7 +60,7 @@
 }
 </style>
 <script>
-export default{
+export default {
     methods:{
         linkto(p){
             window.open(p,'_blank')

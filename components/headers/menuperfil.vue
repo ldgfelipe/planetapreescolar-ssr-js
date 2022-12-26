@@ -31,7 +31,10 @@
             </v-avatar>
             <p>{{ userdatacollect.nombre }} {{ userdatacollect.apellido }}</p>
             <p>{{ userdatacollect.correo }}</p>
-            <v-btn class="morado white--text" to="/perfil">Editar Perfil</v-btn>
+
+            <v-btn class="morado white--text" to="/perfil">Editar Perfil</v-btn><br /><br />
+
+            <v-chip :color="claims.premium ? 'melon white--text' : 'primary white--text'">Cuenta {{claims.premium ? 'Premium' : 'Gratis'}}</v-chip>
           </div>
         </v-list-item-content>
       </v-list-item>
@@ -44,7 +47,7 @@
             </div>
 
             <div v-if="claims.premium===true && Object.keys(descargas).length>0" class="text-left pa-4 grey white--text menulist" elevation="0" @click="gotoRoute('/descargas')" >
-                <v-icon class="pl-5">mdi-downloads</v-icon>  Descargas Premium <b>{{ descargas.mes.registro.length }}</b>
+                <v-icon class="pl-5">mdi-downloads</v-icon>  Descargas :Premium <b>{{pago.limite}} / {{ ndescargaspremium }}  </b>  </b> 
             </div>
            
 
@@ -92,7 +95,18 @@ export default {
     return {};
   },
   computed: {
-    ...mapState(["is_login", "userdatacollect","descargas","claims"]),
+    ...mapState(["is_login", "userdatacollect","descargas","claims","pago"]),
+    ndescargaspremium(){
+      var ndescargas=0
+      if(this.is_login && this.descargas.mes.registro){
+      this.descargas.mes.registro.map((p)=>{
+        if(p.fecha===this.$moment().format('MM YYYY')){
+          ndescargas=p.usadas.length
+        }
+      })
+      }
+      return ndescargas
+    }
   },
   methods:{
     gotoRoute(p){

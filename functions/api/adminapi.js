@@ -23,6 +23,7 @@ router.post("/claims",async (req,res)=>{
   }
 })
 
+
   router.get('/totalusers',async (req,res)=>{
     await db.collection("usuarios").get()
     .then((rep)=>{

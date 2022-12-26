@@ -24,10 +24,11 @@
     </div>
   </template>
   <script>
+
   import buscador from "@/components/content/buscador";
   import listaRecursos from '@/components/recursos/recursos'
   import Blog from '@/components/recursos/pfase1/blog.vue'
-  var last=null
+
   export default {
    async asyncData({ app, params, error }){
       var arraydata=[]
@@ -108,7 +109,7 @@
             res.forEach((snap)=>{
               let recurso=[]
               recurso=snap.data()
-              recurso.idRecurso=res.id
+              recurso.idRecurso=snap.id
                   this.arrayrecursos.push(recurso)
               })
           })

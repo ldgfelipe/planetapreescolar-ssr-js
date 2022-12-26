@@ -1,4 +1,4 @@
-var apirest="local" /// prod
+var apirest="local" /// prod / local
 
 // eslint-disable-next-line nuxt/no-cjs-in-config
 module.exports = {
@@ -14,7 +14,8 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -24,7 +25,8 @@ module.exports = {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '@/plugins/vue-pdf.js', mode: 'client' }
+   { src: '@/plugins/vue-pdf.js', mode: 'client' },
+ 
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -48,10 +50,11 @@ module.exports = {
     '@nuxtjs/pwa',
     '@nuxtjs/firebase',
     '@nuxtjs/dotenv',
-    '@nuxtjs/moment',
+    //'@nuxtjs/moment',
   ],
   moment: {
-    defaultTimezone: 'America/Los_Angeles',
+    timezone: true,
+    defaultTimezone: 'America/Mexico_City',
     locales: ['es']
   },
   loading: {
@@ -135,7 +138,7 @@ module.exports = {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     extend () {
-      console.log('api desarrollo: ' + process.env.functions)
+      //console.log('api desarrollo: ' + process.env.functions)
 
     }
   }

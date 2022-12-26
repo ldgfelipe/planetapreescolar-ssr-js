@@ -1,4 +1,7 @@
 {
+  "AccesoLoginpop": {
+    "description": "Auto imported from components/acceso/loginpop.vue"
+  },
   "ContentBuscador": {
     "description": "Auto imported from components/content/buscador.vue"
   },
@@ -20,14 +23,11 @@
   "RecursosAlertas": {
     "description": "Auto imported from components/recursos/alertas/alertas.vue"
   },
+  "RecursosPfase1Blog": {
+    "description": "Auto imported from components/recursos/pfase1/blog.vue"
+  },
   "RecursosPfase1Tipo1": {
     "description": "Auto imported from components/recursos/pfase1/tipo1.vue"
-  },
-  "RecursosPfase1Tipo2": {
-    "description": "Auto imported from components/recursos/pfase1/tipo2.vue"
-  },
-  "RecursosPfase1Tipo3": {
-    "description": "Auto imported from components/recursos/pfase1/tipo3.vue"
   },
   "RecursosPfase2Tipo1": {
     "description": "Auto imported from components/recursos/pfase2/tipo1.vue"

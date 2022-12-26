@@ -49,6 +49,7 @@
   </v-sheet>
 </template>
 <script>
+
 import usuarios from '@/pages/adminpages/usuarios.vue'
 import recursos from '@/pages/adminpages/recursos.vue'
 import {mapState} from 'vuex'

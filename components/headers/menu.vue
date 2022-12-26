@@ -17,6 +17,20 @@ app
           <v-list-item-title class="white--text">{{ item.title }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
+
+      
+
+      <v-list-item   v-if="is_login ? claims.premium ? false : true : true " to="checkout"  router exact>
+        <v-list-item-action>
+          <v-icon class="yellow--text">mdi-crown</v-icon>
+        </v-list-item-action>
+        <v-list-item-content>
+          <v-list-item-title class="yellow--text">Premium</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+
+
     </v-list>
   </v-navigation-drawer>
 </template>

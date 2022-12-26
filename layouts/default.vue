@@ -23,7 +23,7 @@
       <v-btn v-if="is_login" icon class="morado white--text" elevation="0"><v-icon>mdi-bell</v-icon></v-btn>
       <v-btn v-if="is_login" icon class="morado white--text" elevation="0" to="/favoritos"><v-icon>mdi-cards-heart</v-icon></v-btn>
 
-      <v-btn v-if="!is_login" class="morado white--text no-text-transform" to="/login">
+      <v-btn v-if="!is_login"  class="morado white--text no-text-transform" @click="cambiaLoginPop(true)">
         Iniciar Sesión
       </v-btn>
       <v-btn v-if="!is_login"  class="melon white--text no-text-transform" to="/register">
@@ -41,27 +41,30 @@
 
       </div>
     </v-main>
-
+<LoginPop></LoginPop>
     <v-footer :absolute="!fixed" app class="morado white--text ma-0" style="z-index:99999999999999999999999999;">
-      <Footer></Footer>
+      <Footerlayout></Footerlayout>
     </v-footer>
   
   </v-app>
 </template>
 <script>
-import {mapState} from 'vuex'
+import {mapState,mapMutations} from 'vuex'
 import Menulat from '@/components/headers/menu.vue'
+import LoginPop from '@/components/acceso/loginpop.vue'
 import perfilusuario from '@/components/headers/menuperfil.vue'
-import Footer from '@/layouts/footer.vue'
+import Footerlayout from '@/layouts/footer.vue'
 export default {
   name: 'DefaultLayout',
   components: {
     // eslint-disable-next-line vue/no-unused-components
     Menulat,
-    Footer,
-    perfilusuario
+    Footerlayout,
+    perfilusuario,
+    LoginPop
   },
-  props: {
+  methods:{
+    ...mapMutations(['cambiaLoginPop'])
   },
   data () {
     return {

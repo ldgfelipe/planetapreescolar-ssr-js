@@ -46,7 +46,26 @@ export default {
           btn2: false,
           link2: "",
           img: "/pantallas/6Te gusto este material.png",
-            
+        },
+        {
+          labelbtn1: "Vuelvete Premium",
+          btn1: true,
+          link1: "/checkout",
+          labelbtn2:"",
+          btn2:false,
+          link2:"",
+          img:"/pantallas/8Agotaste tu descarga.png"
+        
+        },
+        {
+          labelbtn1: "Vuelvete Premium",
+          btn1: false,
+          link1: "/checkout",
+          labelbtn2:"",
+          btn2:false,
+          link2:"",
+          img:"/pantallas/9Agotaste todas tus descargas.png"
+          
         }
       ],
     };

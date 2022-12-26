@@ -108,7 +108,7 @@ return app.$fire.firestore.collection('CATEGORIAS')
           res.forEach((snap)=>{
             let recurso=[]
               recurso=snap.data()
-              recurso.idRecurso=res.id
+              recurso.idRecurso=snap.id
                 this.arrayrecursos.push(recurso)
             })
         })

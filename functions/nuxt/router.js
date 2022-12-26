@@ -9,6 +9,7 @@ const _4199ef49 = () => interopDefault(import('../pages/administrador.vue' /* we
 const _25610d25 = () => interopDefault(import('../pages/alianzas.vue' /* webpackChunkName: "pages/alianzas" */))
 const _fe7407ec = () => interopDefault(import('../pages/aviso-de-privacidad.vue' /* webpackChunkName: "pages/aviso-de-privacidad" */))
 const _28e55246 = () => interopDefault(import('../pages/blog.vue' /* webpackChunkName: "pages/blog" */))
+const _355dc004 = () => interopDefault(import('../pages/cancelado.vue' /* webpackChunkName: "pages/cancelado" */))
 const _4588d02c = () => interopDefault(import('../pages/checkout.vue' /* webpackChunkName: "pages/checkout" */))
 const _31c6c2a3 = () => interopDefault(import('../pages/descargas.vue' /* webpackChunkName: "pages/descargas" */))
 const _1b5b4619 = () => interopDefault(import('../pages/favoritos.vue' /* webpackChunkName: "pages/favoritos" */))
@@ -28,11 +29,13 @@ const _107005ac = () => interopDefault(import('../pages/recientes.vue' /* webpac
 const _423aae13 = () => interopDefault(import('../pages/recomendaciones.vue' /* webpackChunkName: "pages/recomendaciones" */))
 const _204282c7 = () => interopDefault(import('../pages/register.vue' /* webpackChunkName: "pages/register" */))
 const _9afeb598 = () => interopDefault(import('../pages/soporte.vue' /* webpackChunkName: "pages/soporte" */))
+const _5590fc8f = () => interopDefault(import('../pages/success.vue' /* webpackChunkName: "pages/success" */))
 const _260cca10 = () => interopDefault(import('../pages/suscripcion.vue' /* webpackChunkName: "pages/suscripcion" */))
 const _60230732 = () => interopDefault(import('../pages/terminos-y-condiciones.vue' /* webpackChunkName: "pages/terminos-y-condiciones" */))
 const _573305a0 = () => interopDefault(import('../pages/tutoriales.vue' /* webpackChunkName: "pages/tutoriales" */))
 const _18f91050 = () => interopDefault(import('../pages/adminpages/recursos.vue' /* webpackChunkName: "pages/adminpages/recursos" */))
 const _493a82ea = () => interopDefault(import('../pages/adminpages/usuarios.vue' /* webpackChunkName: "pages/adminpages/usuarios" */))
+const _5d5e740f = () => interopDefault(import('../pages/foros/_foro.vue' /* webpackChunkName: "pages/foros/_foro" */))
 const _e7eb9a44 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
@@ -66,6 +69,10 @@ export const routerOptions = {
     path: "/blog",
     component: _28e55246,
     name: "blog"
+  }, {
+    path: "/cancelado",
+    component: _355dc004,
+    name: "cancelado"
   }, {
     path: "/checkout",
     component: _4588d02c,
@@ -143,6 +150,10 @@ export const routerOptions = {
     component: _9afeb598,
     name: "soporte"
   }, {
+    path: "/success",
+    component: _5590fc8f,
+    name: "success"
+  }, {
     path: "/suscripcion",
     component: _260cca10,
     name: "suscripcion"
@@ -162,6 +173,10 @@ export const routerOptions = {
     path: "/adminpages/usuarios",
     component: _493a82ea,
     name: "adminpages-usuarios"
+  }, {
+    path: "/foros/:foro?",
+    component: _5d5e740f,
+    name: "foros-foro"
   }, {
     path: "/",
     component: _e7eb9a44,
